@@ -24,8 +24,8 @@
 separator_block_width=15
 
 [volume]
-label=VOLUME
-#label=♪
+#label=VOLUME
+label=♪
 instance=Master
 #instance=PCM
 command=/usr/share/i3blocks/volume
@@ -44,59 +44,35 @@ instance=swap
 command=/usr/share/i3blocks/memory
 interval=30
 
-[disk-var]
-label=VAR
-instance=/var
-command=/usr/share/i3blocks/disk
-interval=30
-
-[disk-opt]
-label=OPT
-instance=/opt
-command=/usr/share/i3blocks/disk
-interval=30
-
-[disk-nvm]
-label=NVM
-instance=/local/nvm
+[disk-slash]
+label=SLASH
+instance=/
 command=/usr/share/i3blocks/disk
 interval=30
 
 [disk-home]
 label=HOME
-#instance=/home/roumegue
+instance=/home/xavier
 command=/usr/share/i3blocks/disk
+interval=30
+
+[battery]
+command=/usr/share/i3blocks/battery
 interval=30
 
 [wireless]
 label=W
-instance=wlp8s0
-command=/usr/share/i3blocks/network
-color=#00FF00
-interval=10
-
-[ethernet]
-label=E
-instance=eno1
-#instance=enp0s25
+instance=wlp1s0
 command=/usr/share/i3blocks/network
 color=#00FF00
 interval=10
 
 [bw]
 label=bw
-instance=eth1
-command=/usr/share/i3blocks/network-bandwidth
+instance=wlp1s0
+command=/usr/share/i3blocks/bandwidth
 color=#00FF00
 interval=3
-
-[vpn]
-label=vpn
-instance=vpn0
-#instance=enp0s25
-command=/usr/share/i3blocks/network
-color=#00FF00
-interval=10
 
 [temperature]
 label=TEMP
