@@ -11,9 +11,11 @@ Xft.hintstyle: hintslight
 !
 
 #define FONTSIZE 18
-xterm*faceName: xft:terminus:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
-URxvt*font:     xft:terminus:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
-URxvt*boldFont: xft:terminus:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
+#define FONTDPI 76
+#define FONTSTYLE terminus
+xterm*faceName: xft:FONTSTYLE:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=FONTDPI
+URxvt*font:     xft:FONTSTYLE:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=FONTDPI
+URxvt*boldFont: xft:FONTSTYLE:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=FONTDPI
 
 ! Extra options for xft font spec - ~/.fonts.conf seems to override this
 :antialias=false:hintstyle=hintfull
