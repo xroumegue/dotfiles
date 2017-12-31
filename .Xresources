@@ -13,6 +13,7 @@ Xft.hintstyle: hintslight
 #define FONTSIZE 18
 #define FONTDPI 76
 #define FONTSTYLE terminus
+!#define FONTSTYLE FontAwesome
 xterm*faceName: xft:FONTSTYLE:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=FONTDPI
 URxvt*font:     xft:FONTSTYLE:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=FONTDPI
 URxvt*boldFont: xft:FONTSTYLE:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=FONTDPI
