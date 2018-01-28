@@ -71,6 +71,23 @@ URxvt.visualBell: false
 ! URxvt.tabbed.tab-bg:    0
 ! URxvt.keysym.M-c:   perl:clipboard:copy
 ! URxvt.keysym.M-v:   perl:clipboard:paste
+!
+
+
+!Copy to clipboard using Ctrl-Shift-c
+URxvt.perl-ext-common:  default,clipboard,url-select,font-size,tabbedex
+URxvt.iso14755 : false
+URxvt.clipboard.autocopy: true
+URxvt.keysym.C-C: perl:clipboard:copy
+URxvt.keysym.C-V: perl:clipboard:paste
+URxvt.keysym.C-A-V: perl:clipboard:paste_escaped
+URxvt.keysym.M-u: perl:url-select:select_next
+
+URxvt.keysym.C-plus:     perl:font-size:increase
+URxvt.keysym.C-underscore:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
+
 
 ! Colors
 
