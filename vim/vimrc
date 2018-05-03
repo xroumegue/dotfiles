@@ -127,6 +127,8 @@ nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
 "    Plugin 'pythoncomplete'
 "    Plugin 'jmcantrell/vim-virtualenv'
 "
+Plugin 'davidhalter/jedi-vim'
+
 
 
 
