@@ -95,7 +95,7 @@ nmap <leader>gf :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R
 Plugin 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', 'python', ], 'passive_filetypes': ['html', 'css', 'slim'] }
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby'], 'passive_filetypes': ['html', 'css', 'slim'] }
 
 
 Plugin 'brookhong/cscope.vim'
@@ -127,9 +127,11 @@ nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
 "    Plugin 'pythoncomplete'
 "    Plugin 'jmcantrell/vim-virtualenv'
 "
-Plugin 'davidhalter/jedi-vim'
 
-
+"Plugin 'davidhalter/jedi-vim'
+Plugin 'gabesoft/vim-ags'
+Plugin 'pearofducks/ansible-vim'
+Plugin 'altercation/vim-colors-solarized'
 
 
 "Plugin 'ryanoasis/vim-devicons'
@@ -413,3 +415,18 @@ augroup ft_vim
     au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
 " }}}
+
+
+function Py2()
+  let g:syntastic_python_python_exec = '/usr/bin/python2.7'
+  let g:syntastic_python_pylint_exe = 'python -m pylint'
+endfunction
+
+function Py3()
+  let g:syntastic_python_python_exec = '/usr/bin/python3.6'
+  let g:syntastic_python_pylint_exe = 'python3 -m pylint'
+endfunction
+
+call Py3()   " default to Py3 because I try to use it when possible
+
+let g:syntastic_cpp_config_file = ".syntastic_cpp_config"
