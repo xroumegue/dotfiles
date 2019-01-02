@@ -48,7 +48,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = mpd
-modules-right = filesystem backlight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = filesystem backlight volume xkeyboard memory cpu wlan eth battery fan-speed temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -89,6 +89,7 @@ label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
 
+
 [module/filesystem]
 type = internal/fs
 interval = 25
@@ -96,7 +97,9 @@ interval = 25
 mount-0 = /
 mount-1 = /home
 mount-2 = /srv/dev
-mount-3 = /srv/vms
+mount-3 = /var
+mount-4 = /opt
+#mount-3 = /srv/vms
 
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
@@ -152,57 +155,36 @@ label-urgent = %index%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
-[module/xbacklight]
-type = internal/xbacklight
-
-
-[module/backlight]
+[module/fan-speed]
 type = custom/script
-interval = 3
-exec = ~/.config/polybar/backlight.sh
+exec = ~/.config/polybar/fan-speed.sh
+interval = 1
 
-scroll-up = exec brightnessctl s 1%+
-scroll-down = exec brightnessctl s 1%-
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+hwmon-path=/sys/devices/platform/it87.656/hwmon/hwmon0/temp1_input
+warn-temperature = 60
 
-format-prefix = 🌑
-#format = <label>
-label =  BL %output%%
-enable-scroll = true
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #ff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-ramp-0 = 🌕
-ramp-1 = 🌔
-ramp-2 = 🌓
-ramp-3 = 🌒
-ramp-4 = 🌑
+format = <ramp> <label>
+format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
 
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format = <label> <ramp-coreload>
+#format = <label> <ramp-coreload>
+format = <ramp-coreload>
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ramp-coreload-0 = ▁
@@ -224,30 +206,6 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %percentage_used%%
 
-[module/wlan]
-type = internal/network
-interface = wlp2s0
-interval = 3.0
-
-format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
-label-connected = %essid% %local_ip% %signal%% %downspeed% %upspeed%
-
-#label-connected =  [ :   %upspeed% | :   %downspeed% ]
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
-
 [module/eth]
 type = internal/network
 interface = enp5s0
@@ -256,7 +214,7 @@ interval = 3.0
 format-connected-underline = #55aa55
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected =%local_ip%  [ :   %upspeed% | :   %downspeed% ]
+label-connected =%local_ip% [ %upspeed% | %downspeed% ]
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -335,25 +293,6 @@ animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature%
-label-warn = %temperature%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu

@@ -191,8 +191,9 @@ bindsym $mod+Insert mode "$mode_system"
 for_window [class="urxvt"] border pixel 1
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec feh --bg-center ~/Pictures/yoda-1920x1080.jpg
+exec feh --bg-center ~/Pictures/yoda-1920x1080.png
 exec xmodmap ~/.Xmodmap
 exec --no-startup-id nm-applet
 exec  /usr/bin/pasystray
 exec /usr/bin/clipit
+exec bash ~/.screenlayout/nxp-office-triplescreen.sh
