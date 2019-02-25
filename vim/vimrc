@@ -60,6 +60,8 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " CODING STYLE {{{
 
+Plugin 'martinda/Jenkinsfile-vim-syntax'
+
 Plugin 'Yggdroot/indentLine'
 set list lcs=tab:\|\
 let g:indentLine_color_term = 111
@@ -95,10 +97,12 @@ nmap <leader>gf :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R
 Plugin 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', 'python', ], 'passive_filetypes': ['html', 'css', 'slim'] }
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', ], 'passive_filetypes': ['html', 'css', 'slim'] }
+let g:syntastic_python_pylint_exe = 'python3 -m pylint -j$(nproc)'
 
 
 Plugin 'brookhong/cscope.vim'
+Plugin 'xuhdev/vim-latex-live-preview'
 
 nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
 nnoremap <leader>fl :call ToggleLocationList()<CR>
