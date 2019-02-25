@@ -1,25 +1,28 @@
 ! Font options - ~/.fonts.conf seems to override this
 ! ! Resolution for Xft in dots per inch (e.g. 96)
-Xft.dpi:       96
+Xft.dpi:       100
 ! ! Type of subpixel antialiasing (none, rgb, bgr, vrgb or vbgr)
 Xft.rgba:      rgba
 Xft.antialias: 1
 Xft.hinting:   1
 Xft.autohint:  0
 ! ! What degree of hinting to use (hintnone, hintslight, hintmedium, or hintfull)
-Xft.hintstyle: hintslight
+Xft.hintstyle: hintmedium
 !
 
-#define FONTSIZE 18
-#define FONTDPI 76
+#define FONTSIZE 16
+#define FONTDPI 100
 #define FONTSTYLE terminus
 !#define FONTSTYLE FontAwesome
-xterm*faceName: xft:FONTSTYLE:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=FONTDPI
+xterm*faceName: xft:FONTSTYLE:size=FONTSIZE
+
+!xterm*faceName: misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*
+!xterm*faceName: xft:6x12
 URxvt*font:     xft:FONTSTYLE:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=FONTDPI
 URxvt*boldFont: xft:FONTSTYLE:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=FONTDPI
 
 ! Extra options for xft font spec - ~/.fonts.conf seems to override this
-:antialias=false:hintstyle=hintfull
+!:antialias=false:hintstyle=hintfull
 
 #define WINDOWGEOMETRY 90x20
 ! xterm
@@ -66,7 +69,7 @@ URxvt.visualBell: false
 ! URxvt.perl-ext-common:  default,tabbed
 ! ,clipboard
 ! URxvt.tabbed.tabbar-fg: 4
-! URxvt.tabbed.tabbar-bg: 0
+ URxvt.tabbed.tabbar-bg: 0
 ! URxvt.tabbed.tab-fg:    9
 ! URxvt.tabbed.tab-bg:    0
 ! URxvt.keysym.M-c:   perl:clipboard:copy
