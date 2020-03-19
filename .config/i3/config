@@ -191,7 +191,8 @@ bindsym $mod+Insert mode "$mode_system"
 for_window [class="urxvt"] border pixel 1
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec feh --bg-center ~/Pictures/yoda-1920x1080.png
+#exec feh --bg-center ~/Pictures/yoda-1920x1080.png
+exec feh --bg-scale ~/Pictures/yoda-sabre-2560x1440.jpg
 exec xmodmap ~/.Xmodmap
 exec --no-startup-id nm-applet
 exec  /usr/bin/pasystray
