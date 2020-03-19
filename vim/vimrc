@@ -99,6 +99,7 @@ let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby'], 'pa
 
 
 Plugin 'brookhong/cscope.vim'
+Plugin 'xuhdev/vim-latex-live-preview'
 
 nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
 nnoremap <leader>fl :call ToggleLocationList()<CR>
