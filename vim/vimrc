@@ -31,6 +31,7 @@ set guioptions-=L
 " Keep NERDTree window fixed between multiple toggles
 set winfixwidth
 
+Plugin 'mileszs/ack.vim'
 
 Plugin 'michaeljsmith/vim-indent-object'
 let g:indentobject_meaningful_indentation = ["haml", "sass", "python", "yaml", "markdown"]
