@@ -194,4 +194,4 @@ exec feh --bg-center ~/Pictures/yoda-1920x1080.jpg
 exec xmodmap ~/.Xmodmap
 exec --no-startup-id nm-applet
 exec  /usr/bin/pasystray
-exec /usr/bin/clipit
+exec /usr/bin/diodon

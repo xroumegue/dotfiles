@@ -132,6 +132,7 @@ nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
 
 
 "Plugin 'ryanoasis/vim-devicons'
+Plugin 'ycm-core/YouCompleteMe'
 
 call vundle#end()
 
