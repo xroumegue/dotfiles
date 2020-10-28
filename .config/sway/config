@@ -3,7 +3,7 @@ set $mod Mod4
 set $lock ~/.local/bin/scripts/lock.sh
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
-set $term termite
+set $term alacritty
 set $menu rofi -m $(expr $(swaymsg -t get_tree | jq '.nodes | map([recurse(.nodes[]?, .floating_nodes[]?) | .focused] | any) | index(true)') - 1) -show drun -run-command 'swaymsg exec -- {cmd}'
 #set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $screenshot grim ~/.images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
@@ -87,7 +87,7 @@ assign [class="^KeePass2$"] $wsF11
 assign [class="^Spotify$"] $wsF12
 
 # Shortcuts
-bindsym $mod+KP_Enter exec $term
+bindsym $mod+Return exec $term
 bindsym $mod+Print exec $screenshot
 bindsym $mod+Shift+Print exec $screenclip
 bindsym $mod+d exec $menu
@@ -103,8 +103,7 @@ bindsym $mod+Escape exec $power
 bindsym $mod+End exec $wifi
 
 # Notifications
-bindsym Control+Space exec makoctl dismiss
-bindsym Control+Shift+Space exec makoctl dismiss --all
+bindsym $mod+Control+Space exec makoctl dismiss
 
 # Multimedia
 bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
@@ -220,7 +219,7 @@ mode "resize" {
     bindsym Right resize grow width 10px
 
     # return to default mode
-    bindsym KP_Enter mode "default"
+    bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
@@ -235,7 +234,7 @@ mode "$mode_system" {
     bindsym Shift+r exec --no-startup-id systemctl reboot --firmware-setup, mode "default"
 
     # return to default mode
-    bindsym KP_Enter mode "default"
+    bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+Shift+e mode "$mode_system"
