@@ -1,3 +1,4 @@
+"
 " vimrc adapted from vimified
 " Author: Xavier
 "
@@ -128,7 +129,7 @@ nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
 "    Plugin 'pythoncomplete'
 "    Plugin 'jmcantrell/vim-virtualenv'
 "
-
+Plugin 'chrisbra/unicode.vim'
 
 
 "Plugin 'ryanoasis/vim-devicons'
