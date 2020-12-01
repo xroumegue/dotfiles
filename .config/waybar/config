@@ -57,7 +57,7 @@
             "ethernet": [""],
             "disconnected": [""]
         },
-        "on-click": "alacritty -e nmtui",
+        "on-click": "nm-connection-editor",
     "tooltip": false
     },
     "pulseaudio": {

@@ -121,10 +121,10 @@ bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 10
 bindsym $mod+Home exec --no-startup-id pkill -USR1 redshift
 
 # Idle configuration
-exec swayidle \
+exec swayidle -w \
     timeout 300 'exec $lock' \
-    timeout 600 'swaymsg "output * dpms off"' \
-    after-resume 'swaymsg "output * dpms on"' \
+#    timeout 600 'swaymsg "output * dpms off"' \
+#    resume 'swaymsg "output * dpms on"' \
     before-sleep 'exec $lock'
 
 # Move your focus around
