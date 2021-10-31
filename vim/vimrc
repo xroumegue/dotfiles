@@ -31,6 +31,7 @@ set guioptions-=L
 " Keep NERDTree window fixed between multiple toggles
 set winfixwidth
 
+Plugin 'rking/ag.vim'
 
 Plugin 'michaeljsmith/vim-indent-object'
 let g:indentobject_meaningful_indentation = ["haml", "sass", "python", "yaml", "markdown"]
@@ -81,6 +82,7 @@ nmap <leader>t :TagbarToggle<CR>
 
 " GIT {{{
 Plugin 'gregsexton/gitv'
+Plugin 'airblade/vim-gitgutter'
 
 Plugin 'tpope/vim-fugitive'
 nmap <leader>gs :Gstatus<CR>
@@ -103,6 +105,8 @@ let g:syntastic_python_pylint_exe = 'python3 -m pylint -j$(nproc)'
 
 Plugin 'brookhong/cscope.vim'
 Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'chrisbra/unicode.vim'
 
 nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
 nnoremap <leader>fl :call ToggleLocationList()<CR>

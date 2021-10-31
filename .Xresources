@@ -75,7 +75,8 @@ URxvt.visualBell: false
 
 
 !Copy to clipboard using Ctrl-Shift-c
-URxvt.perl-ext-common:  default,clipboard,url-select,font-size,tabbedex
+URxvt.perl-ext-common:  default,selection,url-select,font-size
+#URxvt.perl-ext-common:  default,selection,url-select,font-size,tabbed
 URxvt.iso14755 : false
 URxvt.clipboard.autocopy: true
 URxvt.keysym.C-C: perl:clipboard:copy
@@ -88,6 +89,12 @@ URxvt.keysym.C-underscore:   perl:font-size:decrease
 URxvt.keysym.C-S-Up:   perl:font-size:incglobal
 URxvt.keysym.C-S-Down: perl:font-size:decglobal
 
+
+URxvt.perl-ext: default,url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+URxvt.perl-lib: /usr/lib/x86_64-linux-gnu/urxvt/perl
 
 ! Colors
 
