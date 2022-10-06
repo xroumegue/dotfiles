@@ -22,6 +22,11 @@ Plugin 'vundleVim/Vundle.vim'
 " }}}
 
 " GENERAL {{{
+Plugin 'embear/vim-localvimrc'
+let g:localvimrc_persistent=1
+" Whitelist everything
+"let g:localvimrc_whitelist='/.*'
+
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-endwise'
 Plugin 'scrooloose/nerdtree'
@@ -62,6 +67,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " CODING STYLE {{{
 
 Plugin 'martinda/Jenkinsfile-vim-syntax'
+Plugin 'gtk-vim-syntax'
 
 Plugin 'Yggdroot/indentLine'
 set list lcs=tab:\|\
@@ -96,11 +102,14 @@ nmap <leader>gf :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R
 
 " }}}
 
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', ], 'passive_filetypes': ['html', 'css', 'slim'] }
 let g:syntastic_python_pylint_exe = 'python3 -m pylint -j$(nproc)'
+let g:syntastic_loc_list_height = 3
+let g:syntastic_rst_checkers = ['sphinx']
 
 
 Plugin 'brookhong/cscope.vim'
@@ -204,6 +213,8 @@ nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
 
 Plugin 'vivien/vim-linux-coding-style'
 let g:linuxsty_patterns = [ "/usr/src/", "/linux", "bsp/linux", "isp/dw100" ]
+
+Plugin 'rhysd/vim-clang-format'
 
 "Plugin 'ryanoasis/vim-devicons'
 
@@ -331,7 +342,7 @@ set tabstop=4
 set softtabstop=4
 set textwidth=80
 set shiftwidth=4
-set expandtab
+set noexpandtab
 set wrap
 set formatoptions=qrn1
 if exists('+colorcolumn')
@@ -486,3 +497,9 @@ augroup ft_vim
     au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
 " }}}
+"
+
+" Spell
+
+set spell spelllang=en_us
+set nospell
