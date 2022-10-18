@@ -27,5 +27,9 @@ if [ ! -d "$INSTALLDIR/bundle/vundle" ]; then
 fi
 
 echo "Installing all plugins"
-vim +BundleInstall +qall 
+vim +BundleInstall +qall
 
+
+echo "Compiling YouCompleteMe"
+cd ~/.vim/bundle/YouCompleteMe
+python3 install.py --clang-completer --clangd-completer
