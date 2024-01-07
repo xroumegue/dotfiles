@@ -500,6 +500,8 @@ augroup ft_vim
     au FileType help setlocal textwidth=78
     au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
+
+au BufRead,BufNewFile *.v set syntax=verilog
 " }}}
 "
 
