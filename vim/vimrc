@@ -111,8 +111,10 @@ let g:syntastic_python_pylint_exe = 'python3 -m pylint -j$(nproc)'
 let g:syntastic_loc_list_height = 3
 let g:syntastic_rst_checkers = ['sphinx']
 
-
+if !has('nvim')
 Plugin 'brookhong/cscope.vim'
+endif
+
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'chrisbra/unicode.vim'
