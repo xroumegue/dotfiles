@@ -75,6 +75,15 @@ lvim.plugins = {
       require('symbols-outline').setup()
     end
   },
+  {
+    "scalameta/nvim-metals",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("user.metals").config()
+    end,
+  },
 }
 
 -- local telescopebuiltin = require("telescope.builtin")
@@ -89,3 +98,9 @@ lvim.builtin.which_key.mappings["."] = {
 -- lvim.builtin.which_key.mappings[","] = {
 --   "<cmd> Git grep -q {vim.fn.expand("<cword>")}<CR>", "Git Grep String"
 -- }
+
+vim.opt.foldmethod = "expr" -- default is "normal"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- default is ""
+-- if this option is true and fold method option is other than normal, every time a document is opened everything will be folded.
+vim.opt.foldenable = false
+
